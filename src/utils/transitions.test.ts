@@ -1,0 +1,3 @@
+import { describe, expect, it } from 'vitest'
+import { canTransition } from './transitions'
+describe('transições da jornada', () => { it('permite o fluxo válido', () => { expect(canTransition('not_started', 'working')).toBe(true); expect(canTransition('working', 'on_break')).toBe(true); expect(canTransition('on_break', 'working')).toBe(true); expect(canTransition('working', 'finished')).toBe(true) }); it('recusa transições inválidas', () => { expect(canTransition('not_started', 'on_break')).toBe(false); expect(canTransition('on_break', 'finished')).toBe(false); expect(canTransition('finished', 'working')).toBe(false) }) })
